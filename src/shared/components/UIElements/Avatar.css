@@ -1,0 +1,20 @@
+.avatar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar img {
+  display: block;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+.avatar img:hover {
+  filter: sepia(30%) contrast(100%) brightness(90%);
+  transform: scale(1.2);
+}
