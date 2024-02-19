@@ -9,6 +9,7 @@ import {
 import Users from "./users/pages/Users";
 import NewPlace from "./places/pages/NewPlace";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
+import Userplaces from "./places/pages/Userplaces";
 
 function App() {
   console.log("hello this is test");
@@ -18,6 +19,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Navigate to="/users" />} />
+          <Route path="/:userId/places" element={<Userplaces />} />
           <Route path="/users" element={<Users />} />
           <Route path="/places/new" element={<NewPlace />} />
           <Route path="*" element={<Navigate to="/users" />} />
