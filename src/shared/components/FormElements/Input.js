@@ -34,7 +34,7 @@ const Input = (props) => {
 
   useEffect(() => {
     onInput(id, value, isValid);
-  }, [id, onInput, value, isValid]);
+  }, [id, value, isValid, onInput]);
 
   const changeHanlder = (event) => {
     dispatch({
@@ -63,6 +63,7 @@ const Input = (props) => {
         id={props.id}
         rows={props.rows || 3}
         onChange={changeHanlder}
+        onBlur={touchHandler}
         value={inputState.value}
       />
     );
