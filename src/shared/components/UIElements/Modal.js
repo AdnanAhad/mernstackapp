@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 import { CSSTransition } from "react-transition-group";
+
 import Backdrop from "./Backdrop";
 import "./Modal.css";
 
@@ -16,10 +16,10 @@ const ModalOverlay = (props) => {
           props.onSubmit ? props.onSubmit : (event) => event.preventDefault()
         }
       >
-        <div className={`modal__content ${props.contenClass}`}>
+        <div className={`modal__content ${props.contentClass}`}>
           {props.children}
         </div>
-        <footer className={`modal__footer${props.footerClass}`}>
+        <footer className={`modal__footer ${props.footerClass}`}>
           {props.footer}
         </footer>
       </form>
@@ -37,7 +37,7 @@ const Modal = (props) => {
         mountOnEnter
         unmountOnExit
         timeout={200}
-        className="modal"
+        classNames="modal"
       >
         <ModalOverlay {...props} />
       </CSSTransition>
