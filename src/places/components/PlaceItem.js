@@ -25,6 +25,7 @@ function PlaceItem(props) {
           <h2> The MAP is not here because I have to buy google API </h2>
         </div>
       </Modal>
+
       <li className="place-item">
         <Card className="place-item__content">
           <div className="place-item__image">

@@ -7,6 +7,7 @@ import {
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import { useForm } from "../../shared/hooks/form-hook";
+import Card from "../../shared/components/UIElements/Card";
 import "./PlaceForm.css";
 
 const DUMMY_PLACES = [
@@ -25,7 +26,7 @@ const DUMMY_PLACES = [
   },
   {
     id: "p2",
-    title: "Empire State Building",
+    title: "Emp. State Building",
     description: "one of the famous sky scrapper in the worlds (u2) ",
     imageUrl:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg",
@@ -59,19 +60,21 @@ const UpdatePlace = () => {
 
   const identifiedPlace = DUMMY_PLACES.find((p) => p.id === placeId);
   useEffect(() => {
-    setFormData(
-      {
-        title: {
-          value: identifiedPlace.title,
-          isValid: true,
+    if (identifiedPlace) {
+      setFormData(
+        {
+          title: {
+            value: identifiedPlace.title,
+            isValid: true,
+          },
+          description: {
+            value: identifiedPlace.description,
+            isValid: true,
+          },
         },
-        description: {
-          value: identifiedPlace.description,
-          isValid: true,
-        },
-      },
-      true
-    );
+        true
+      );
+    }
     setIsloading(false);
   }, [setFormData, identifiedPlace]);
 
@@ -83,8 +86,10 @@ const UpdatePlace = () => {
 
   if (!identifiedPlace) {
     return (
-      <div>
-        <h1> Could Not find place</h1>
+      <div className="center">
+        <Card>
+          <h2> Could Not find place</h2>
+        </Card>
       </div>
     );
   }
@@ -99,7 +104,7 @@ const UpdatePlace = () => {
 
   return (
     <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
-      <h1>Update the Place</h1>
+      <h3>Update the Place</h3>
       <Input
         id="title"
         element="input"

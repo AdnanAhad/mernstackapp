@@ -15,7 +15,7 @@ function UserList(props) {
     );
   }
   return (
-    <ul>
+    <ul className="center">
       {props.items.map((user) => (
         <UserItem
           key={user.id}
